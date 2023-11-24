@@ -21,14 +21,15 @@ from sklearn.metrics import make_scorer
 scaler = joblib.load('../models/scaler.model')
 
 ### ---------------read data-----------------
-df_test = pd.read_csv('../Data/traitement_test/test.csv')
+df_test = joblib.load("../models/data/test.joblib")
+
 test = df_test[df_test.columns[df_test.columns != "SK_ID_CURR"]]
 test_scaler = scaler.transform(test)
 
 ### Data with proba:
-my_data = pd.read_csv("../Data/proba_final/data.csv",encoding='ISO-8859-1')
+my_data = joblib.load("../models/data/df.joblib")
 ## read data origin for visualisation:
-df_origin  = pd.read_csv("../Data/pretraitements_data/application_test.csv")
+df_origin  = joblib.load("../models/data/df_origine.joblib")
 df_origin['y_pred'] = my_data['y_pred']
 test_origin = df_origin[df_origin.columns[df_origin.columns != "SK_ID_CURR"]]
 
