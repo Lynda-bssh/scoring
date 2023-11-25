@@ -154,7 +154,8 @@ with header:
 
 
             selected_row = my_data[my_data["SK_ID_CURR"] == selected_client]
-            max_score = selected_row[["Class_0","Class_1"]].max().max()
+            
+            max_score = selected_row["Class_1"].values[0]
            
             col1, col2 = st.columns(2)
             with col1:
