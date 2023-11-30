@@ -11,25 +11,33 @@ import os
 import time
 from st_shape import st_shap
 import streamlit.components.v1 as components
-
 from matplotlib.colors import LinearSegmentedColormap
 from PIL import Image
 import plotly.graph_objects as go
 from sklearn.metrics import make_scorer
 
-##load model:
-scaler = joblib.load('../models/scaler.model')
+### current directory:
+current_directory = os.path.dirname(os.path.abspath(__file__))
+### path of model , explainer and scaler:
+model_path = os.path.join(current_directory,"..","models","LGBMClassifier.model")
+scaler_path = os.path.join(current_directory,"..","models","scaler.model")
+explainer_path = os.path.join(current_directory,"..","models","explainer.model")
 
-### ---------------read data-----------------
-df_test = joblib.load("../models/data/test.joblib")
+### path of data
+df_path =  os.path.join(current_directory,"..","models","data","df.joblib")
+df_origin_path = os.path.join(current_directory,"..","models","data","df_origine.joblib")
+test_path = os.path.join(current_directory,"..","models","data","test.joblib")
+my_data = joblib.load(df_path)
+df_origin = joblib.load(df_origin_path)
 
+### load data:and explainer and model:
+
+df_test = joblib.load(test_path)
+scaler = joblib.load(scaler_path)
+explainer_model = joblib.load(explainer_path)
+model = joblib.load(model_path)
 test = df_test[df_test.columns[df_test.columns != "SK_ID_CURR"]]
 test_scaler = scaler.transform(test)
-
-### Data with proba:
-my_data = joblib.load("../models/data/df.joblib")
-## read data origin for visualisation:
-df_origin  = joblib.load("../models/data/df_origine.joblib")
 df_origin['y_pred'] = my_data['y_pred']
 test_origin = df_origin[df_origin.columns[df_origin.columns != "SK_ID_CURR"]]
 
