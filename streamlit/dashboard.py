@@ -1,10 +1,11 @@
 
 
 import streamlit as st
-import joblib
+
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import joblib
 import matplotlib.pyplot as plt
 import shap
 import os
@@ -16,6 +17,7 @@ from PIL import Image
 import plotly.graph_objects as go
 from sklearn.metrics import make_scorer
 
+st.set_option('browser.gatherUsageStats', False)
 ### current directory:
 current_directory = os.path.dirname(os.path.abspath(__file__))
 
