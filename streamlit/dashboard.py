@@ -260,7 +260,7 @@ with header:
    
     id_client  = df_test[df_test['SK_ID_CURR']== selected_client]
 
-    explainer_model = joblib.load('../models/explainer.model')
+    explainer_model = joblib.load(explainer_path)
     shap_values_test = explainer_model.shap_values(test_scaler)
     def feature_local():
         
