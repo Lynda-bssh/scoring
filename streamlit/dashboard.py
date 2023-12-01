@@ -57,8 +57,9 @@ model_training = st.container()
  
 # une sidebar( logo de pret à depenser , button select, 
 # et 3 autres buttons) 
-
-logo = st.sidebar.image('./15510866018677_logo_projet_fintech.png', use_column_width=True)
+chemin = os.path.join(current_directory,"",'15510866018677_logo_projet_fintech.png')
+print(current_directory)
+logo = st.sidebar.image(chemin, use_column_width=True)
 
 st.markdown(
     f"""
