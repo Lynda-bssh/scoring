@@ -3,29 +3,29 @@ name: Deploy to Streamlit Sharing
 on:
   push:
     branches:
-      - main
+      - main  # Remplacez "main" par le nom de votre branche principale
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: 3.8
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.8
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Assurez-vous d'adapter cette commande à votre configuration
 
-      - name: Run tests
-        run: |
-          python -m pytest ./test/test_api.py
+    - name: Run tests
+      run: |
+        python -m pytest ./test/test_api.py  # Assurez-vous d'adapter cette commande à votre configuration
 
   deploy:
     runs-on: ubuntu-latest
