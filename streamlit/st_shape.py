@@ -14,17 +14,8 @@ plt.rcParams['figure.autolayout'] = True
 
 import base64
 from io import BytesIO
-
-# Shap plots internally call plt.show()
-# On Linux, prevent plt.show() from emitting a non-GUI backend warning.
 import os
 os.environ.pop("DISPLAY", None)
-
-# Note: Colorbar changes (introduced bugs) in matplotlib>3.4.3
-# cause the colorbar of certain shap plots (e.g. beeswarm) to not display properly
-# See: https://github.com/matplotlib/matplotlib/issues/22625 and
-# https://github.com/matplotlib/matplotlib/issues/22087
-# If colorbars are not displayed properly, try downgrading matplotlib to 3.4.3
 
 def st_shap(plot, height=None, width=None):
     """Takes a SHAP plot as input, and returns a streamlit.delta_generator.DeltaGenerator as output.
