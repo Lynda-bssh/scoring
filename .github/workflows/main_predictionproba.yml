@@ -1,53 +1,44 @@
-
-name: Build and deploy Python app to streamlit - PredictionProba
+name: Deploy to Streamlit Sharing
 
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
+      - main  # Remplacez "main" par le nom de votre branche principale
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Python version
-        uses: actions/setup-python@v1
-        with:
-          python-version: '3.8'
-      - name: Create and start virtual environment
-        run: |
-                python -m venv venv
-                source venv/bin/activate
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.8
 
-      - name: Install dependencies
-      run: pip install -r requirements.txt
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Assurez-vous d'adapter cette commande à votre configuration
 
-      - name: Run Test unitaire API
-        run: pytest ./test/test_api.py
-  
-    deploy:
+    - name: Run tests
+      run: |
+        python -m pytest ./test/test_api.py  # Assurez-vous d'adapter cette commande à votre configuration
+
+  deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
       name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: python-app
-          path: .
-          
-      - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
-        with:
-          app-name: 'PredictionProba'
-          slot-name: 'Production'
-          publish-profile: streamlit deploy --token ${{ secrets.STREAMLIT_123456789 }} 
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: 'Deploy to Streamlit Sharing'
+        run: |
+          streamlit deploy --token ${{ secrets.STREAMLIT_123456789 }}
+
         
