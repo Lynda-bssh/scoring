@@ -27,16 +27,16 @@ jobs:
       run: |
         python -m pytest ./test/test_api.py  # Assurez-vous d'adapter cette commande à votre configuration
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Production'
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   environment:
+  #     name: 'Production'
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v2
 
-      - name: 'Deploy to Streamlit Sharing'
-        run: |
-          streamlit deploy --token ${{ secrets.STREAMLIT_123456789 }}
+  #     - name: 'Deploy to Streamlit Sharing'
+  #       run: |
+  #         streamlit deploy --token ${{ secrets.STREAMLIT_123456789 }}
