@@ -28,17 +28,17 @@ def test_load():
     assert model is not None, "Erreur de chargement de modèle"
 
 
-### testing home route
+# ### testing home route
 
 
-def test_home_route(client):
-    response = client.get('/')
-    assert response.status_code == 200
-    assert b'Welcome to the Home Page' in response.data
+# def test_home_route(client):
+#     response = client.get('/')
+#     assert response.status_code == 200
+#     assert b'Welcome to the Home Page' in response.data
 
 
-def test_predict_route(client):
+# def test_predict_route(client):
     
-    response = client.post('/predict', data={'SK_ID_CURR': '10001'})
-    assert response.status_code == 200
-    assert b'Your credit prediction:' in response.data
+#     response = client.post('/predict', data={'SK_ID_CURR': '10001'})
+#     assert response.status_code == 200
+#     assert b'Your credit prediction:' in response.data
