@@ -58,7 +58,7 @@ model_training = st.container()
 # une sidebar( logo de pret à depenser , button select, 
 # et 3 autres buttons) 
 
-logo = st.sidebar.image('15510866018677_logo projet fintech.png', use_column_width=True)
+logo = st.sidebar.image('./15510866018677_logo_projet_fintech.png', use_column_width=True)
 
 st.markdown(
     f"""
