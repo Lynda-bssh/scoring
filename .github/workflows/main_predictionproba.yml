@@ -1,31 +1,25 @@
-name: Build and deploy Python app to Streamlit - PredictionProba
+name: Run Unit Tests
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.8
 
-      - name: Create and start virtual environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt 
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run Unit Tests for API
-        run: pytest ./scoring/test/test_api.py
+    - name: Run tests
+      run: |
+        python -m pytest  ./scoring/test/test_api.py
