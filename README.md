@@ -1,4 +1,4 @@
-# scoring
+# Scoring
 ## Projet OpenClassroom parcours Data Scientist
 
 ## Description du projet
