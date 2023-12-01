@@ -15,18 +15,20 @@ model_path = os.path.join(current_directory,"..","models","LGBMClassifier.model"
 scaler_path = os.path.join(current_directory,"..","models","scaler.model")
 explainer_path = os.path.join(current_directory,"..","models","explainer.model")
 
-### read data
+### 
 df_path =  os.path.join(current_directory,"..","models","data","df.joblib")
 df_origin_path = os.path.join(current_directory,"..","models","data","df_origin.joblib")
 test_path = os.path.join(current_directory,"..","models","data","test.joblib")
-df = joblib.load(df_path)
 
+def load(path):
+    return joblib.load(path)
 
+df = load(df_path)
+df_test = load(test_path)
+scaler = load(scaler_path)
+explainer_model = load(explainer_path)
+model = load(model_path)
 
-df_test = joblib.load(test_path)
-scaler = joblib.load(scaler_path)
-explainer_model = joblib.load(explainer_path)
-model = joblib.load(model_path)
 test = df_test[df_test.columns[df_test.columns != "SK_ID_CURR"]]
 test_scaler = scaler.transform(test)
 
