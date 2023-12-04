@@ -28,9 +28,6 @@ def test_load():
     assert model is not None, "Erreur de chargement de modèle"
 
 
-# ### testing home route
-
-
 # def test_home_route(client):
 #     response = client.get('/')
 #     assert response.status_code == 200
