@@ -17,6 +17,12 @@ jobs:
         with:
           python-version: '3.8'
 
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
       - name: Create and start virtual environment
         run: |
           python -m venv venv
