@@ -24,6 +24,10 @@ def feature_local(client, explainer_model, test_scaler):
     )
     return force_plot_fig.to_html(full_html=False)
 
+
+
+
+
 def generate_gauge(max_score):
     max_score = max_score * 100
 

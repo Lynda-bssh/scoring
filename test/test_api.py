@@ -4,6 +4,7 @@ import joblib
 import os
 import sys
 from pathlib import Path
+from flask_testing import TestCase
 
 
 
@@ -11,7 +12,7 @@ parent_directory = Path(__file__).resolve().parent.parent
 api_directory = parent_directory / "api"
 sys.path.append(str(api_directory))
 
-from app import app, current_directory,load
+from app import app, current_directory,load, home
 
 
 
@@ -28,14 +29,14 @@ def test_load():
     assert model is not None, "Erreur de chargement de modèle"
 
 
-# def test_home_route(client):
-#     response = client.get('/')
-#     assert response.status_code == 200
-#     assert b'Welcome to the Home Page' in response.data
 
 
-# def test_predict_route(client):
-    
-#     response = client.post('/predict', data={'SK_ID_CURR': '10001'})
-#     assert response.status_code == 200
-#     assert b'Your credit prediction:' in response.data
+
+
+       
+        
+
+
+
+
+
