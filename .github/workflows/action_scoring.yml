@@ -22,8 +22,10 @@ jobs:
           python -m venv venv
           source venv/bin/activate
       
+
       - name: Install dependencies
         run: pip install -r requirements.txt
 
       - name: Run Test unitaire API
         run: pytest ../tests-Unitaires/test_api.py
+        
