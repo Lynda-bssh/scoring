@@ -65,34 +65,12 @@ df_origin_path = os.path.join(current_directory,"..","models","data","df_origine
 df_path = os.path.join(current_directory,"..","models","data","df.joblib")
 df_origin = joblib.load(df_origin_path)
 my_data = joblib.load(df_path)
-
-# info_client = my_data[my_data['SK_ID_CURR'] == selected_client ]
-#     # with data origin 
-#client = df_origin[df_origin['SK_ID_CURR'] == selected_client]
-# if not client.empty:
-
-
-
-#         val_1 = client['Population_Density'].values[0]
-#         val_2 = client['CODE_GENDER'].values[0]
-#         val_3 = client['CNT_CHILDREN'].values[0]
-#         val_4 = client['NAME_CONTRACT_TYPE'].values[0]
-#         val_5 = client['FLAG_OWN_CAR'].values[0]
-#         val_6 = client['DAYS_BIRTH'].values[0]
-#         df_filtr = df_origin[(df_origin['Population_Density'] == val_1) & (df_origin['CODE_GENDER'] == val_2)& (df_origin['CNT_CHILDREN'] == val_3)& (df_origin['NAME_CONTRACT_TYPE'] == val_4)& (df_origin['FLAG_OWN_CAR'] == val_5)& (df_origin['DAYS_BIRTH'] == val_6)]
-
-
-        
+       
 variables = ["AMT_INCOME_TOTAL", "AMT_CREDIT", "AMT_ANNUITY"]
 data = my_data[['AMT_INCOME_TOTAL', 'AMT_CREDIT', 'AMT_ANNUITY', 'y_pred']]
 superposed_data = data.melt(id_vars="y_pred", value_vars=["AMT_INCOME_TOTAL", "AMT_CREDIT", "AMT_ANNUITY"])
 
         #------data for similair client:
-
-# variables = ["AMT_INCOME_TOTAL", "AMT_CREDIT", "AMT_ANNUITY"]
-# df_simil = df_filtr[['AMT_INCOME_TOTAL', 'AMT_CREDIT', 'AMT_ANNUITY', 'y_pred']]
-# superposed_df = df_simil.melt(id_vars="y_pred", value_vars=["AMT_INCOME_TOTAL", "AMT_CREDIT", "AMT_ANNUITY"])
-
 
 
 
@@ -126,33 +104,6 @@ def scatter_plot(x, y,selected_client):
     return plt
        
 
-# def similarite_client(x, y,selected_client):
-
-#     client = df_origin[df_origin['SK_ID_CURR'] == selected_client]
-#     info_client = my_data[my_data['SK_ID_CURR'] == selected_client ]
-#     if not client.empty:
-
-#         val_1 = client['Population_Density'].values[0]
-#         val_2 = client['CODE_GENDER'].values[0]
-#         val_3 = client['CNT_CHILDREN'].values[0]
-#         val_4 = client['NAME_CONTRACT_TYPE'].values[0]
-#         val_5 = client['FLAG_OWN_CAR'].values[0]
-#         val_6 = client['DAYS_BIRTH'].values[0]
-#         df_filtr = df_origin[(df_origin['Population_Density'] == val_1) & (df_origin['CODE_GENDER'] == val_2)& (df_origin['CNT_CHILDREN'] == val_3)& (df_origin['NAME_CONTRACT_TYPE'] == val_4)& (df_origin['FLAG_OWN_CAR'] == val_5)& (df_origin['DAYS_BIRTH'] == val_6)]
-#         #variables = ["AMT_INCOME_TOTAL", "AMT_CREDIT", "AMT_ANNUITY"]
-#         df_simil = df_filtr[['AMT_INCOME_TOTAL', 'AMT_CREDIT', 'AMT_ANNUITY', 'y_pred']]
-#         superposed_df = df_simil.melt(id_vars="y_pred", value_vars=["AMT_INCOME_TOTAL", "AMT_CREDIT", "AMT_ANNUITY"])
-        
-#         plt.figure(figsize=(6, 3))
-#         palette = sns.color_palette("pastel")
-                    
-#         sns.scatterplot(x= x, y= y, hue='y_pred', data= df_filtr, palette="Set1",s = 10)
-#         plt.scatter(data = client,x = x,y = y , marker='*', color='#006400', s=50, label='Client')
-#         plt.legend(fontsize='small')
-#         return plt
-
-
-
 def generate_gauge(max_score):
 
     max_score = max_score*100
@@ -178,7 +129,7 @@ def generate_gauge(max_score):
                                 'value': max_score}}))
 
     fig.update_layout(paper_bgcolor='white',
-                    height=400, width=600,
+                    height=600, width=800,
                     font={'color': '#772b58', 'family': 'Roboto Condensed'},
                     margin=dict(l=30, r=30, b=5, t=5))
 

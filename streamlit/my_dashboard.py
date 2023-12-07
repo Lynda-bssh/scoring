@@ -60,12 +60,16 @@ detail_client_url = "http://127.0.0.1:5000/d%C3%A9tails_clients"
 test_ids = get_client_ids()
 id_list = sorted(list(test_ids['SK_ID_CURR']))
 
-
+st.set_page_config(layout="wide")
 
 header = st.container()
 dataset = st.container()
 features = st.container()
 model_training = st.container()
+
+
+
+
 
 st.markdown(
     f"""
@@ -99,10 +103,11 @@ case_option  = ["<Select>","Groupe Client", "Similaire Client"]
 selected_option = st.sidebar.selectbox("", case_option)
 
 
-with header:
 
-    
-  
+
+
+
+with header:
 
     ## Couleur de fond vert pour messages de succès:
     st.markdown(
@@ -122,7 +127,7 @@ with header:
     selected_client = st.selectbox("", options=options, index=0)
 
         
-            
+              
     if selected_client != options[0] :
             
         st.write("Vous avez sélectionné l'identifiant n° :", selected_client)
