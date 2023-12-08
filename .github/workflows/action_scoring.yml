@@ -51,12 +51,11 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: python-app
-
-      
+          
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
           app-name: 'scoring-pret-a-depenser-lynda-hadjemi'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_8083937b95134f67b5d937705ba6ab93 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_123456 }}
