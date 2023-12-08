@@ -8,10 +8,10 @@ from pathlib import Path
 from flask import Flask, request, jsonify, render_template
 
 parent_directory = Path(__file__).resolve().parent.parent
-api_directory = parent_directory / "api"
+api_directory = parent_directory / "app"
 sys.path.append(str(api_directory))
 #sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'api')))
-from api import app
+from app import app
 import pytest
 
 ### creation d'un client web:
