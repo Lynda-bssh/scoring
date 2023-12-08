@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Credit scoring</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
+</head>
+
+
+<body>
+  <a href="{{ url_for('home') }}">Home</a>
+    <br>
+    <br>
+    <br>
+    {{ prediction_text }}
+    <br>
+
+    <div id="gauge-container" class="gauge-container">
+      {{ gauge_html|safe }}
+      
+  </div>
+
+  
+	
+
+
+
+</body>
+</html>

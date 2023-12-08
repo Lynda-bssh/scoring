@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Credit scoring</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
+</head>
+<body>
+
+  <h1>Modèle de scoring</h1>
+  <div class="login">
+   
+     <form action="{{ url_for('predict')}}"method="post">
+       <input type="text" name="SK_ID_CURR" placeholder="SK_ID_CURR" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        <!-- <button type="submit" class="btn btn-primary btn-block btn-large" >Analyse Locale</button> -->
+
+     </form>
+   
+    
+     <form action="{{ url_for('afficher_features_globales') }}" method="post">
+      <button type="submit" class="btn btn-primary btn-block btn-large">Features Globales</button>
+  </form>
+
+
+      <form action="{{ url_for('détails_clients')}}"method="post">
+       <input type="text" name="SK_ID_CURR" placeholder="SK_ID_CURR" required="required" />
+      <button type="submit" class="btn btn-primary btn-block btn-large" >Détails_client</button>
+
+     </form>
+  
+  </div>
+</body>
+</html>
