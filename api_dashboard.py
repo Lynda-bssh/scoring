@@ -9,8 +9,8 @@ scripts_directory_dashboard = "./streamlit"
 env = os.environ.copy()
 
 # Modifiez la variable d'environnement PORT
-env["PORT"] = "5000"
-
+env["PORT"] =  "5000"
+# executer code 
 # Exécutez api.py avec python avec la nouvelle variable d'environnement
 subprocess.Popen(["python", f"{scripts_directory_api}/api.py"], env=env)
 
