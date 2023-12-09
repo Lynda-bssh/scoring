@@ -16,10 +16,9 @@ env = os.environ.copy()
 env["PORT"] =  "5000"
 # executer code 
 # Exécutez api.py avec python avec la nouvelle variable d'environnement
-subprocess.Popen(["pwd"] ,shell = True )
-subprocess.Popen(["ls"] ,shell = True )
-subprocess.Popen(["python ./app/api.py"] ,shell = True, env=env )
+
+subprocess.Popen(["python ./app/api.py"] ,env=env )
 
 # Exécutez dashboard.py avec streamlit
-subprocess.Popen(["python -m streamlit run ./dasboard/my_dasboard.py --server.port 8000 --server.address 0.0.0.0"], shell=True,env=env)
-# "--server.port", "8080"
+subprocess.Popen(["python -m streamlit run ./dashboard/my_dashboard.py" ,"--server.port" ,"8000"],env=env)
+
