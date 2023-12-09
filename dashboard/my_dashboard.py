@@ -72,6 +72,7 @@ model_training = st.container()
 
 
 st.markdown(
+    
     f"""
     <style>
     .stButton > button {{
