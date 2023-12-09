@@ -19,5 +19,5 @@ subprocess.Popen(["ls"] ,shell = True )
 subprocess.Popen(["python ./app/api.py"] ,shell = True, env=env )
 
 # Exécutez dashboard.py avec streamlit
-subprocess.Popen(["python -m streamlit run ./dashboard/my_dashboard.py","--server.port", "8080"], shell=True,env=env)
+subprocess.Popen(["python -m streamlit ./dasboard/my_dasboard.py --server.port 8000 --server.address 0.0.0.0"], shell=True,env=env)
 # "--server.port", "8080"
