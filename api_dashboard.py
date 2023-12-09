@@ -16,8 +16,8 @@ env["PORT"] =  "5000"
 # Exécutez api.py avec python avec la nouvelle variable d'environnement
 subprocess.Popen(["pwd"] ,shell = True )
 subprocess.Popen(["ls"] ,shell = True )
-subprocess.Popen(["python ./app/api.py"] ,shell = True )
+subprocess.Popen(["python ./app/api.py"] ,shell = True, env=env )
 
 # Exécutez dashboard.py avec streamlit
-subprocess.Popen(["python -m streamlit run ./dashboard/my_dashboard.py"",--server.port", "8080"], shell=True)
+subprocess.Popen(["python -m streamlit run ./dashboard/my_dashboard.py","--server.port", "8080"], shell=True,env=env)
 # "--server.port", "8080"
