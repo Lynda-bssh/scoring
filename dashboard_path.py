@@ -5,7 +5,7 @@ import subprocess
 dashboard_path = os.path.abspath("./dashboard/my_dashboard.py")
 # Obtenez les variables d'environnement actuelles
 env = os.environ.copy()
-env["DASHBOARD_PORT"] = "8000"
+env["DASHBOARD_PORT"] = "8501"
 
 
 ###Lancez l'application Streamlit avec streamlit

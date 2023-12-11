@@ -52,10 +52,10 @@ def details_client(sk_id_curr):
         return None
 
 
-ids_url = "http://127.0.0.1:5000/reference_list"
-predict_url = "http://127.0.0.1:5000/predict"
-globale_url = "http://127.0.0.1:5000/images/globale"
-detail_client_url = "http://127.0.0.1:5000/d%C3%A9tails_clients"
+ids_url = "https://lyndascoring.kindbush-3a40be53.germanywestcentral.azurecontainerapps.io/reference_list"
+predict_url = "https://lyndascoring.kindbush-3a40be53.germanywestcentral.azurecontainerapps.io/predict"
+globale_url = "https://lyndascoring.kindbush-3a40be53.germanywestcentral.azurecontainerapps.io/images/globale"
+detail_client_url = "https://lyndascoring.kindbush-3a40be53.germanywestcentral.azurecontainerapps.io/d%C3%A9tails_clients"
 
 test_ids = get_client_ids()
 id_list = sorted(list(test_ids['SK_ID_CURR']))
