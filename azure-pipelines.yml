@@ -3,6 +3,10 @@
   inputs:
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    # Add variables for Docker image name and registry if needed
+    # imageName: '<your-image-name>'
+    # containerRegistry: '<your-container-registry>'
+
 # Create and test a Python package on multiple Python versions.
 # Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
@@ -12,6 +16,7 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+
 strategy:
   matrix:
     Python27:
@@ -38,3 +43,4 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
+
