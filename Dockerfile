@@ -12,8 +12,10 @@ WORKDIR /app
 
 COPY . /app
 
-EXPOSE 5000
-
 # Run api.py when the container launches
 CMD ["python", "./app/api.py"]
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ff354fc227f3753d3808d4d3175942216778c66e
