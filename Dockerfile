@@ -1,20 +1,20 @@
 # Use an official Python runtime as a parent image
 FROM python:3.8-slim
 
-# Set the working directory to /app
-WORKDIR /app
 
-# Copy the local contents into the container at /app
-COPY . /app
+COPY requirements.txt .
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update \
+    && apt-get install -y libgomp1 \
+    && pip install --no-cache-dir -r requirements.txt 
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
 
-# Define environment variable
-ENV env_p7=default_value
+WORKDIR /app
+
+COPY . /app
+
+EXPOSE 5000
 
 # Run api.py when the container launches
 CMD ["python", "./app/api.py"]
