@@ -1,5 +1,4 @@
 # Python package
----
 - task: Docker@2
   inputs:
     command: 'buildAndPush'
