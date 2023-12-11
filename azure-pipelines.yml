@@ -1,4 +1,5 @@
 # Python package
+---
 - task: Docker@2
   inputs:
     command: 'buildAndPush'
@@ -43,4 +44,3 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
-
