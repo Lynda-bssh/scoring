@@ -24,7 +24,7 @@ def get_image():
 
 def predict(sk_id_curr):
    
-    api_url = "http://127.0.0.1:5000/predict" 
+    api_url = "https://lyndascoring.kindbush-3a40be53.germanywestcentral.azurecontainerapps.io/predict" 
     data = {"SK_ID_CURR": sk_id_curr}
     response = requests.post(api_url, data=data)
 
@@ -39,7 +39,7 @@ def predict(sk_id_curr):
 
 def details_client(sk_id_curr):
     #on fait la requête à notre API
-    api_url = "http://127.0.0.1:5000/d%C3%A9tails_clients"  
+    api_url = "https://lyndascoring.kindbush-3a40be53.germanywestcentral.azurecontainerapps.io/d%C3%A9tails_clients"  
     data = {"SK_ID_CURR": sk_id_curr}
     response = requests.post(api_url, data=data)
 
