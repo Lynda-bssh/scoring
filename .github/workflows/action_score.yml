@@ -52,7 +52,7 @@ jobs:
 
       - name: Activate virtual environment and start Flask
         run: |
-          source venv/bin/activate
+         
           export FLASK_RUN_PORT=5000 
           flask run
 
