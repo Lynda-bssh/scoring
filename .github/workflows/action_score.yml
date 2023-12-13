@@ -50,6 +50,12 @@ jobs:
         with:
           name: python-app
 
+      - name: Activate virtual environment and start Flask
+        run: |
+          source venv/bin/activate
+          export FLASK_RUN_PORT=5000 
+          python ./app/api.py
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
@@ -58,8 +64,4 @@ jobs:
           slot-name: 'production'
           publish-profile: ${{ secrets.SCORING_AZUREAPPSERVICE_PUBLISHPROFILE }}
 
-      - name: Activate virtual environment and start Flask
-        run: |
-          source venv/bin/activate
-          export FLASK_RUN_PORT=5000 
-          python ./app/api.py
+    
