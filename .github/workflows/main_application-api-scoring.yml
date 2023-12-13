@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'application-api-scoring'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A832D3A23EA402EA013F1489BC2246B }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E7305598549F48A9A4C00E6CAAD8C174 }}
