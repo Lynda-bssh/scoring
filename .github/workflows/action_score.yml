@@ -1,4 +1,4 @@
-name: action_scoring
+name: action_score
 on:
   push:
     branches:
