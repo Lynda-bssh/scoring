@@ -10,6 +10,7 @@ from io import BytesIO
 import requests
 
 
+base_url = 'http://localhost:5000'
 
 def get_client_ids():
     response = requests.get(ids_url)
@@ -24,7 +25,7 @@ def get_image():
 
 def predict(sk_id_curr):
    
-    api_url = "https://lyndascoring.kindbush-3a40be53.germanywestcentral.azurecontainerapps.io/predict" 
+    api_url = base_url + "/predict" 
     data = {"SK_ID_CURR": sk_id_curr}
     response = requests.post(api_url, data=data)
 
@@ -39,7 +40,7 @@ def predict(sk_id_curr):
 
 def details_client(sk_id_curr):
     #on fait la requête à notre API
-    api_url = "https://lyndascoring.kindbush-3a40be53.germanywestcentral.azurecontainerapps.io/d%C3%A9tails_clients"  
+    api_url = base_url +  "/d%C3%A9tails_clients"  
     data = {"SK_ID_CURR": sk_id_curr}
     response = requests.post(api_url, data=data)
 
@@ -52,10 +53,10 @@ def details_client(sk_id_curr):
         return None
 
 
-ids_url = "https://lyndascoring.kindbush-3a40be53.germanywestcentral.azurecontainerapps.io/reference_list"
-predict_url = "https://lyndascoring.kindbush-3a40be53.germanywestcentral.azurecontainerapps.io/predict"
-globale_url = "https://lyndascoring.kindbush-3a40be53.germanywestcentral.azurecontainerapps.io/images/globale"
-detail_client_url = "https://lyndascoring.kindbush-3a40be53.germanywestcentral.azurecontainerapps.io/d%C3%A9tails_clients"
+ids_url = base_url + '/reference_list'
+predict_url = base_url + "/predict"
+globale_url = base_url + "/images/globale"
+detail_client_url = base_url +  "/d%C3%A9tails_clients"
 
 test_ids = get_client_ids()
 id_list = sorted(list(test_ids['SK_ID_CURR']))
